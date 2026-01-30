@@ -67,7 +67,7 @@ jobs:
         run: pnpm test
 
   build:
-    name: Build ${{ github.event.inputs.platform || 'all' }} (${{ github.event.inputs.profile || 'preview' }})
+    name: Build ${{ github.event.inputs.platform || 'android' }} (${{ github.event.inputs.profile || 'preview' }})
     needs: lint-and-typecheck
     runs-on: ubuntu-latest
     steps:
@@ -96,7 +96,7 @@ jobs:
 
       - name: Build app
         run: |
-          PLATFORM="${{ github.event.inputs.platform || 'all' }}"
+          PLATFORM="${{ github.event.inputs.platform || 'android' }}"
           PROFILE="${{ github.event.inputs.profile || 'preview' }}"
 
           eas build \
