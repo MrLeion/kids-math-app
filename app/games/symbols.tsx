@@ -168,7 +168,7 @@ export default function SymbolsGameScreen() {
             </View>
             <View style={[styles.soundBubble, { backgroundColor: selectedSymbol.color + "20" }]}>
               <Text style={[styles.soundText, { color: selectedSymbol.color }]}>
-                "{selectedSymbol.sound}"
+                &quot;{selectedSymbol.sound}&quot;
               </Text>
             </View>
           </View>

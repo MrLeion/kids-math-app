@@ -115,7 +115,7 @@ export default function NumbersGameScreen() {
             <Text style={styles.selectedName}>{selectedAnimal.name}</Text>
             <Text style={styles.selectedDescription}>{selectedAnimal.description}</Text>
             <View style={styles.soundBubble}>
-              <Text style={styles.soundText}>"{selectedAnimal.sound}"</Text>
+              <Text style={styles.soundText}>&quot;{selectedAnimal.sound}&quot;</Text>
             </View>
           </Animated.View>
         )}

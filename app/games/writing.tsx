@@ -606,7 +606,7 @@ export default function WritingGameScreen() {
             <Text style={styles.instructionText}>
               1. 选择要练习的数字{"\n"}
               2. 用手指在画布上描摹数字{"\n"}
-              3. 点击"检查"按钮验证{"\n"}
+              3. 点击&quot;检查&quot;按钮验证{"\n"}
               4. 每完成一个数字获得2颗星星！
             </Text>
           </View>
