@@ -103,19 +103,54 @@ eas build --platform all --profile production
 
 ## CI/CD
 
-项目配置了 GitHub Actions 自动构建：
-
-- 推送到 `main` 分支自动触发构建
-- 支持手动触发，可选择平台和构建配置
-- 构建前自动运行类型检查、代码检查和测试
+项目配置了 GitHub Actions 自动构建。
 
 ### 配置 GitHub Secrets
 
-在仓库 Settings → Secrets → Actions 中添加：
+首次使用前，需在仓库 Settings → Secrets and variables → Actions → Secrets 中添加：
 
-| Secret | 说明 |
-|--------|------|
-| `EXPO_TOKEN` | Expo 访问令牌 |
+| Secret | 说明 | 获取方式 |
+|--------|------|----------|
+| `EXPO_TOKEN` | Expo 访问令牌 | [expo.dev](https://expo.dev) → Settings → Access Tokens |
+
+### 触发构建
+
+#### 方式一：自动触发
+
+推送代码到 `main` 分支会自动触发构建：
+
+```bash
+git push origin main
+```
+
+#### 方式二：手动触发
+
+1. 打开仓库的 [Actions](../../actions) 页面
+2. 左侧选择 **EAS Build**
+3. 点击 **Run workflow**
+4. 选择构建参数：
+   - **Platform**: `android` / `ios` / `all`
+   - **Profile**: `development` / `preview` / `production`
+5. 点击绿色 **Run workflow** 按钮
+
+### 构建配置说明
+
+| Profile | 用途 | 输出格式 |
+|---------|------|----------|
+| `development` | 开发调试 | Debug APK / iOS 模拟器 |
+| `preview` | 内部测试 | APK（可直接安装到设备） |
+| `production` | 应用商店发布 | AAB (Android) / IPA (iOS) |
+
+### 查看构建结果
+
+- **GitHub Actions**: 查看工作流运行状态和日志
+- **Expo Dashboard**: 访问 [expo.dev](https://expo.dev) 查看构建详情、下载安装包
+
+### 注意事项
+
+- 首次构建需要先在本地运行 `eas build` 设置签名凭证
+- iOS 构建需要 Apple Developer 账号（$99/年）
+- 免费 Expo 账户每月 30 次云端构建额度
 
 ## 项目结构
 
