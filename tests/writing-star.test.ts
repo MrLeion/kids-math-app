@@ -34,12 +34,13 @@ describe("Writing game star following feature", () => {
     expect(content).toContain("starY.value = e.y;");
   });
 
-  it("should fade out star on gesture end", () => {
+  it("should handle gesture end", () => {
     const content = fs.readFileSync(writingGamePath, "utf-8");
-    
-    // Check for star fade out in onEnd
-    expect(content).toContain(".onEnd(() => {");
-    expect(content).toContain("starOpacity.value = withTiming(0");
+
+    // Check for gesture end handler
+    expect(content).toContain(".onEnd((e) => {");
+    // Check for glow reset on end
+    expect(content).toContain("starGlow.value = withTiming(0");
   });
 
   it("should have star animated style", () => {
