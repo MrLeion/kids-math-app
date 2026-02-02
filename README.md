@@ -10,6 +10,121 @@
 - 进度追踪和奖励系统
 - 支持 iOS、Android 和 Web 平台
 
+## 系统架构图
+
+```mermaid
+flowchart TB
+    subgraph Client["📱 客户端 (Expo + React Native)"]
+        direction TB
+        UI["UI 组件层<br/>NativeWind (Tailwind CSS)"]
+        Router["路由层<br/>Expo Router"]
+        State["状态管理<br/>React Query + AsyncStorage"]
+        TRPC_Client["tRPC Client"]
+    end
+
+    subgraph Server["🖥️ 服务端 (Express + Node.js)"]
+        direction TB
+        Express["Express Server"]
+        TRPC_Server["tRPC Router"]
+        Auth["认证模块<br/>JWT + OAuth"]
+        Storage["存储服务<br/>S3"]
+        LLM["AI 服务<br/>LLM / 图像生成 / 语音"]
+    end
+
+    subgraph Database["🗄️ 数据库"]
+        MySQL[(MySQL)]
+        Drizzle["Drizzle ORM"]
+    end
+
+    subgraph Platforms["📲 运行平台"]
+        iOS["iOS"]
+        Android["Android"]
+        Web["Web"]
+    end
+
+    UI --> Router
+    Router --> State
+    State --> TRPC_Client
+    TRPC_Client <-->|"HTTP/WebSocket"| TRPC_Server
+    TRPC_Server --> Auth
+    TRPC_Server --> Storage
+    TRPC_Server --> LLM
+    TRPC_Server --> Drizzle
+    Drizzle --> MySQL
+    Express --> TRPC_Server
+
+    Client --> iOS
+    Client --> Android
+    Client --> Web
+```
+
+## 项目结构图
+
+```mermaid
+flowchart LR
+    subgraph Root["📁 项目根目录"]
+        direction TB
+        subgraph Frontend["前端"]
+            App["app/<br/>页面路由"]
+            Components["components/<br/>UI 组件"]
+            Hooks["hooks/<br/>React Hooks"]
+            Lib["lib/<br/>工具库"]
+            Assets["assets/<br/>静态资源"]
+        end
+
+        subgraph Backend["后端"]
+            Server["server/<br/>API 服务"]
+            Drizzle["drizzle/<br/>数据库 Schema"]
+            Shared["shared/<br/>共享类型"]
+        end
+
+        subgraph Config["配置"]
+            TS["tsconfig.json"]
+            Tailwind["tailwind.config.js"]
+            EAS["eas.json"]
+        end
+    end
+
+    App --> |"使用"| Components
+    App --> |"使用"| Hooks
+    Components --> |"使用"| Lib
+    Server --> |"使用"| Drizzle
+    Server --> |"使用"| Shared
+    App --> |"调用"| Server
+```
+
+## 游戏模块架构
+
+```mermaid
+flowchart TB
+    subgraph Modules["🎮 游戏模块分类"]
+        direction LR
+        subgraph Basic["基础认知<br/>🟡 黄色"]
+            Numbers["数字动物乐园<br/>numbers.tsx"]
+            Symbols["符号故事<br/>symbols.tsx"]
+        end
+
+        subgraph Counting["数数计算<br/>🔵 蓝色"]
+            Matching["水果丰收乐园<br/>matching.tsx"]
+            Count["昆虫花园<br/>count.tsx"]
+            Compare["动物赛跑<br/>compare.tsx"]
+            FillBlank["火车车厢<br/>fillblank.tsx"]
+        end
+
+        subgraph Arithmetic["运算入门<br/>🟢 绿色"]
+            Addition["蝴蝶花园<br/>addition.tsx"]
+            Subtraction["苹果树<br/>subtraction.tsx"]
+        end
+
+        subgraph LifeSkills["生活技能<br/>🔴 粉色"]
+            Time["认识时间<br/>time.tsx"]
+            Money["玩具店<br/>money.tsx"]
+            Shopping["超市购物<br/>shopping.tsx"]
+            Writing["数字书写<br/>writing.tsx"]
+        end
+    end
+```
+
 ## 游戏模块
 
 | 模块 | 名称 | 内容 |
