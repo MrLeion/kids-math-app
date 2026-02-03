@@ -32,72 +32,72 @@ const MIN_POINTS = 3; // 最小点数从5降低到3
 const NUMBER_PATHS: Record<number, { points: { x: number; y: number }[]; description: string }> = {
   0: {
     points: [
-      { x: 0.5, y: 0.1 }, { x: 0.8, y: 0.3 }, { x: 0.8, y: 0.7 },
-      { x: 0.5, y: 0.9 }, { x: 0.2, y: 0.7 }, { x: 0.2, y: 0.3 }, { x: 0.5, y: 0.1 },
+      { x: 0.5, y: 0.15 }, { x: 0.75, y: 0.3 }, { x: 0.75, y: 0.7 },
+      { x: 0.5, y: 0.85 }, { x: 0.25, y: 0.7 }, { x: 0.25, y: 0.3 }, { x: 0.5, y: 0.15 },
     ],
     description: "从上往下画一个椭圆",
   },
   1: {
     points: [
-      { x: 0.3, y: 0.2 }, { x: 0.5, y: 0.1 }, { x: 0.5, y: 0.9 },
+      { x: 0.4, y: 0.18 }, { x: 0.5, y: 0.15 }, { x: 0.5, y: 0.85 },
     ],
     description: "从左上斜下，然后直直往下",
   },
   2: {
     points: [
-      { x: 0.2, y: 0.3 }, { x: 0.3, y: 0.1 }, { x: 0.7, y: 0.1 },
-      { x: 0.8, y: 0.3 }, { x: 0.2, y: 0.9 }, { x: 0.8, y: 0.9 },
+      { x: 0.25, y: 0.25 }, { x: 0.35, y: 0.15 }, { x: 0.65, y: 0.15 },
+      { x: 0.75, y: 0.3 }, { x: 0.25, y: 0.85 }, { x: 0.75, y: 0.85 },
     ],
     description: "画个小弯钩，再斜下画横线",
   },
   3: {
     points: [
-      { x: 0.2, y: 0.2 }, { x: 0.6, y: 0.1 }, { x: 0.7, y: 0.3 },
-      { x: 0.5, y: 0.5 }, { x: 0.7, y: 0.7 }, { x: 0.6, y: 0.9 }, { x: 0.2, y: 0.8 },
+      { x: 0.25, y: 0.2 }, { x: 0.55, y: 0.15 }, { x: 0.65, y: 0.3 },
+      { x: 0.5, y: 0.5 }, { x: 0.65, y: 0.7 }, { x: 0.55, y: 0.85 }, { x: 0.25, y: 0.8 },
     ],
     description: "画两个向右的弯弯",
   },
   4: {
     points: [
-      { x: 0.6, y: 0.1 }, { x: 0.2, y: 0.6 }, { x: 0.8, y: 0.6 },
-      { x: 0.6, y: 0.6 }, { x: 0.6, y: 0.9 },
+      { x: 0.6, y: 0.15 }, { x: 0.2, y: 0.6 }, { x: 0.8, y: 0.6 },
+      { x: 0.6, y: 0.6 }, { x: 0.6, y: 0.85 },
     ],
     description: "先斜下，再横着，最后往下",
   },
   5: {
     points: [
-      { x: 0.7, y: 0.1 }, { x: 0.3, y: 0.1 }, { x: 0.3, y: 0.4 },
-      { x: 0.6, y: 0.4 }, { x: 0.8, y: 0.6 }, { x: 0.6, y: 0.9 }, { x: 0.2, y: 0.8 },
+      { x: 0.7, y: 0.15 }, { x: 0.3, y: 0.15 }, { x: 0.3, y: 0.4 },
+      { x: 0.6, y: 0.4 }, { x: 0.75, y: 0.6 }, { x: 0.55, y: 0.85 }, { x: 0.25, y: 0.8 },
     ],
     description: "先横着，再往下，画个弯弯",
   },
   6: {
     points: [
-      { x: 0.7, y: 0.2 }, { x: 0.5, y: 0.1 }, { x: 0.2, y: 0.4 },
-      { x: 0.2, y: 0.7 }, { x: 0.5, y: 0.9 }, { x: 0.7, y: 0.7 },
-      { x: 0.5, y: 0.5 }, { x: 0.2, y: 0.6 },
+      { x: 0.65, y: 0.2 }, { x: 0.5, y: 0.15 }, { x: 0.25, y: 0.4 },
+      { x: 0.25, y: 0.7 }, { x: 0.5, y: 0.85 }, { x: 0.7, y: 0.7 },
+      { x: 0.5, y: 0.55 }, { x: 0.25, y: 0.65 },
     ],
     description: "从上往下画个大弯，再画个小圈",
   },
   7: {
     points: [
-      { x: 0.2, y: 0.1 }, { x: 0.8, y: 0.1 }, { x: 0.4, y: 0.9 },
+      { x: 0.2, y: 0.15 }, { x: 0.8, y: 0.15 }, { x: 0.4, y: 0.85 },
     ],
     description: "先横着，再斜斜往下",
   },
   8: {
     points: [
-      { x: 0.5, y: 0.5 }, { x: 0.3, y: 0.3 }, { x: 0.5, y: 0.1 },
-      { x: 0.7, y: 0.3 }, { x: 0.5, y: 0.5 }, { x: 0.3, y: 0.7 },
-      { x: 0.5, y: 0.9 }, { x: 0.7, y: 0.7 }, { x: 0.5, y: 0.5 },
+      { x: 0.5, y: 0.5 }, { x: 0.3, y: 0.32 }, { x: 0.5, y: 0.15 },
+      { x: 0.7, y: 0.32 }, { x: 0.5, y: 0.5 }, { x: 0.3, y: 0.68 },
+      { x: 0.5, y: 0.85 }, { x: 0.7, y: 0.68 }, { x: 0.5, y: 0.5 },
     ],
     description: "画两个叠在一起的圈圈",
   },
   9: {
     points: [
-      { x: 0.7, y: 0.4 }, { x: 0.5, y: 0.1 }, { x: 0.3, y: 0.3 },
-      { x: 0.5, y: 0.5 }, { x: 0.7, y: 0.3 }, { x: 0.7, y: 0.7 },
-      { x: 0.5, y: 0.9 }, { x: 0.3, y: 0.8 },
+      { x: 0.7, y: 0.4 }, { x: 0.5, y: 0.15 }, { x: 0.3, y: 0.32 },
+      { x: 0.5, y: 0.48 }, { x: 0.7, y: 0.32 }, { x: 0.7, y: 0.65 },
+      { x: 0.5, y: 0.85 }, { x: 0.35, y: 0.78 },
     ],
     description: "先画个小圈，再往下弯弯",
   },
@@ -117,57 +117,26 @@ export default function WritingGameScreen() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedbackType, setFeedbackType] = useState<"success" | "error" | "celebration">("success");
   const [attempts, setAttempts] = useState(0);
+  const [isGuiding, setIsGuiding] = useState(false);
   const drawnPointsRef = useRef<Point[]>([]);
 
   const scale = useSharedValue(1);
-  const starX = useSharedValue(0);
-  const starY = useSharedValue(0);
-  const starOpacity = useSharedValue(0);
-
-  // 新增动画值
-  const starScale = useSharedValue(1); // 五角星缩放动画
-  const starGlow = useSharedValue(0); // 光晕效果（0=无，1=绿色，0.5=黄色）
   const endPointScale = useSharedValue(1); // 终点脉动动画
-  const glowColor = useSharedValue('#34C759'); // 光晕颜色
   const guideRingOpacity = useSharedValue(0); // 接近终点的引导圆环
+
+  // 小手引导动画值
+  const handX = useSharedValue(0);
+  const handY = useSharedValue(0);
+  const handOpacity = useSharedValue(0);
 
   // 音频系统
   const { playClick, playStar } = useGameAudio("numbers");
-
-  const resetStar = () => {
-    const start = NUMBER_PATHS[currentNumber].points[0];
-    starX.value = withSpring(start.x * CANVAS_SIZE);
-    starY.value = withSpring(start.y * CANVAS_SIZE);
-    starOpacity.value = 1;
-  };
 
   useEffect(() => {
     loadProgress();
   }, []);
 
-  useEffect(() => {
-    resetStar();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentNumber]);
-
-  // 五角星脉动动画（未开始绘制时）
-  useEffect(() => {
-    if (!isDrawing) {
-      starScale.value = withRepeat(
-        withSequence(
-          withTiming(1.3, { duration: 800, easing: Easing.inOut(Easing.ease) }),
-          withTiming(1.0, { duration: 800, easing: Easing.inOut(Easing.ease) })
-        ),
-        -1, // 无限循环
-        false
-      );
-    } else {
-      starScale.value = withTiming(1.0, { duration: 200 });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDrawing]);
-
-  // 终点脉动动画（相位相反）
+  // 终点脉动动画
   useEffect(() => {
     endPointScale.value = withRepeat(
       withSequence(
@@ -191,7 +160,44 @@ export default function WritingGameScreen() {
     setDrawnPoints([]);
     drawnPointsRef.current = [];
     setAttempts(0);
-    resetStar();
+  };
+
+  // 小手引导动画函数
+  const playGuideAnimation = () => {
+    if (isGuiding) return;
+
+    const path = NUMBER_PATHS[currentNumber].points;
+    setIsGuiding(true);
+
+    // 设置起始位置
+    handX.value = path[0].x * CANVAS_SIZE;
+    handY.value = path[0].y * CANVAS_SIZE;
+    handOpacity.value = withTiming(1, { duration: 300 });
+
+    // 构建X和Y的动画序列
+    const xAnimations: number[] = [];
+    const yAnimations: number[] = [];
+    const durationPerPoint = 400;
+
+    for (let i = 1; i < path.length; i++) {
+      xAnimations.push(withTiming(path[i].x * CANVAS_SIZE, { duration: durationPerPoint }));
+      yAnimations.push(withTiming(path[i].y * CANVAS_SIZE, { duration: durationPerPoint }));
+    }
+
+    // 使用 withSequence 串联动画
+    if (xAnimations.length > 0) {
+      handX.value = withSequence(...xAnimations);
+      handY.value = withSequence(...yAnimations);
+    }
+
+    // 动画结束后隐藏小手
+    const totalDuration = 300 + (path.length - 1) * durationPerPoint + 500;
+    setTimeout(() => {
+      handOpacity.value = withTiming(0, { duration: 300 });
+      setTimeout(() => {
+        setIsGuiding(false);
+      }, 300);
+    }, totalDuration);
   };
 
   const checkDrawing = async () => {
@@ -294,6 +300,8 @@ export default function WritingGameScreen() {
 
   const panGesture = Gesture.Pan()
     .onStart((e) => {
+      if (isGuiding) return; // 引导动画期间禁用书写
+
       const start = NUMBER_PATHS[currentNumber].points[0];
       const startXPos = start.x * CANVAS_SIZE;
       const startYPos = start.y * CANVAS_SIZE;
@@ -304,52 +312,21 @@ export default function WritingGameScreen() {
         const p = { x: e.x, y: e.y };
         setDrawnPoints([p]);
         drawnPointsRef.current = [p];
-        starX.value = e.x;
-        starY.value = e.y;
-        starOpacity.value = 1;
       }
     })
     .onUpdate((e) => {
-      if (!isDrawing) return;
+      if (!isDrawing || isGuiding) return;
 
       const x = e.x;
       const y = e.y;
-
-      // 更新五角星位置
-      starX.value = x;
-      starY.value = y;
 
       // 记录轨迹点
       const p = { x, y };
       drawnPointsRef.current.push(p);
       setDrawnPoints([...drawnPointsRef.current]);
 
-      // 路径偏离检测
-      const path = NUMBER_PATHS[currentNumber];
-      const tolerance = CANVAS_SIZE * PATH_TOLERANCE;
-      const isNearPath = path.points.some((point) => {
-        const px = point.x * CANVAS_SIZE;
-        const py = point.y * CANVAS_SIZE;
-        const distance = Math.sqrt(Math.pow(x - px, 2) + Math.pow(y - py, 2));
-        return distance < tolerance;
-      });
-
-      // 根据是否在路径上改变光晕颜色
-      if (isNearPath || drawnPointsRef.current.length < 3) {
-        glowColor.value = '#34C759'; // 绿色
-        starGlow.value = withTiming(1, { duration: 150 });
-      } else {
-        glowColor.value = '#FFD60A'; // 黄色警告
-        starGlow.value = withTiming(0.6, { duration: 150 });
-        // 轻微震动提示
-        if (drawnPointsRef.current.length % 8 === 0 && Platform.OS !== 'web') {
-          runOnJS(() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          })();
-        }
-      }
-
       // 接近终点时的引导
+      const path = NUMBER_PATHS[currentNumber];
       const endPoint = {
         x: path.points[path.points.length - 1].x * CANVAS_SIZE,
         y: path.points[path.points.length - 1].y * CANVAS_SIZE,
@@ -372,14 +349,10 @@ export default function WritingGameScreen() {
         const endYPos = end.y * CANVAS_SIZE;
         const dist = Math.sqrt(Math.pow(e.x - endXPos, 2) + Math.pow(e.y - endYPos, 2));
 
-        // 重置光晕
-        starGlow.value = withTiming(0, { duration: 300 });
         guideRingOpacity.value = withTiming(0, { duration: 300 });
 
         if (dist < END_TOLERANCE) {
           runOnJS(checkDrawing)();
-        } else {
-          runOnJS(resetStar)();
         }
       }
     })
@@ -389,24 +362,18 @@ export default function WritingGameScreen() {
     transform: [{ scale: scale.value }],
   }));
 
-  const starAnimatedStyle = useAnimatedStyle(() => ({
-    left: starX.value - 20, // 中心对齐（40px/2）
-    top: starY.value - 20,
-    opacity: starOpacity.value,
-    transform: [{ scale: starScale.value }],
-  }));
-
-  const starGlowStyle = useAnimatedStyle(() => ({
-    opacity: starGlow.value,
-    backgroundColor: glowColor.value,
-  }));
-
   const endPointAnimatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: endPointScale.value }],
   }));
 
   const guideRingAnimatedStyle = useAnimatedStyle(() => ({
     opacity: guideRingOpacity.value,
+  }));
+
+  const handAnimatedStyle = useAnimatedStyle(() => ({
+    left: handX.value - 20,
+    top: handY.value - 10,
+    opacity: handOpacity.value,
   }));
 
   const targetPath = NUMBER_PATHS[currentNumber];
@@ -546,12 +513,9 @@ export default function WritingGameScreen() {
                   ))}
                 </View>
 
-                {/* Star following with glow effect */}
-                <Animated.View style={[styles.followingStar, starAnimatedStyle]}>
-                  {/* Glow effect */}
-                  <Animated.View style={[styles.starGlow, starGlowStyle]} />
-                  {/* Star emoji */}
-                  <Text style={styles.starEmoji}>⭐</Text>
+                {/* Guide hand for demonstration */}
+                <Animated.View style={[styles.guideHand, handAnimatedStyle]}>
+                  <Text style={styles.handEmoji}>👆</Text>
                 </Animated.View>
               </View>
             </GestureDetector>
@@ -564,6 +528,15 @@ export default function WritingGameScreen() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.controlButtonText}>🗑️ 清除</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.controlButton, styles.demoButton]}
+                onPress={playGuideAnimation}
+                disabled={isGuiding}
+                activeOpacity={0.7}
+              >
+                <Text style={styles.controlButtonText}>👆 演示</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -777,31 +750,17 @@ const styles = StyleSheet.create({
     borderColor: "#5AC8FA",
     borderStyle: "dashed",
   },
-  followingStar: {
+  guideHand: {
     position: "absolute",
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     alignItems: "center",
     justifyContent: "center",
     pointerEvents: "none",
+    zIndex: 10,
   },
-  starGlow: {
-    position: "absolute",
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    top: -10,
-    left: -10,
-    shadowColor: "#FFD60A",
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 15,
-    elevation: 10,
-  },
-  starEmoji: {
+  handEmoji: {
     fontSize: 40,
-    lineHeight: 40,
-    textAlign: "center",
   },
   controls: {
     flexDirection: "row",
@@ -817,6 +776,9 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     backgroundColor: "#F5F5F5",
+  },
+  demoButton: {
+    backgroundColor: "#5AC8FA",
   },
   guideButton: {
     backgroundColor: "#F5F5F5",
